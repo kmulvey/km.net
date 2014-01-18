@@ -1,0 +1,17 @@
+{
+  "name": "km",
+  "version": "2.0.0",
+  "dependencies": {
+    "grunt": "",
+    "grunt-contrib-clean": "",
+    "grunt-contrib-csslint": "",
+    "grunt-contrib-cssmin": "",
+    "grunt-contrib-jshint": "",
+    "grunt-contrib-uglify": "",
+    "grunt-bump": ""
+  },
+  "scripts": {
+    "test": "grunt testonly",
+    "build": "grunt make"
+  }
+}
