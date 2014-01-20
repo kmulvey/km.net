@@ -13,22 +13,8 @@ html, body{
 	left: 1%;
 	z-index: 2;
 }
-#noscript{
-	-moz-background-clip:border;
-	-moz-background-inline-policy:continuous;
-	-moz-background-origin:padding;
-	position: absolute;
-	top: 0;
-	background:#FFF9CA url(../images/icons/caution.gif) no-repeat scroll 0.5em 0.3em;
-	border:1px solid #AAAAAA;
-	color:#2E2E2E;
-	padding-left: 30px;
-	font-family:Helvetica,Arial,sans-serif;
-	font-size: 12px;
-	line-height:30px;
-	z-index: 5;
-}
 #viewport{
+	background-image:url('//img5.kevinmulvey.net/images/lights.jpg');
 	position: absolute;
 	top: 0;
 	left: 0;
