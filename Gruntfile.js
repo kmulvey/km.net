@@ -84,7 +84,7 @@ module.exports = function(grunt) {
                 "shadow"        : false,  // Allows re-define variables later in code e.g. `var x=1; x=2;`.
                 "supernew"      : false,  // Tolerate `new function () { ... };` and `new Object;`.
                 "undef"         : true,   // Require all non-global variables be declared before they are used.
-                "es5"           : true,   // If ES5 syntax should be allowed.
+                "es5"           : false,   // If ES5 syntax should be allowed.
                 "strict"        : false,  // Require the "use strict"; pragma.
                 "onecase"       : true,
 
@@ -128,9 +128,9 @@ module.exports = function(grunt) {
 		// Make it
 		grunt.registerTask('make', ['clean', 'cssmin', 'uglify']);
 		// test only
-		grunt.registerTask('testonly', 'clean concat min recess qunit test');
+		grunt.registerTask('test', ['csslint', 'jshint']);
 		// JS
-		grunt.registerTask('js', 'lint qunit test concat min');
+		grunt.registerTask('js', ['jshint', 'uglify']);
 		// CSS
-		grunt.registerTask('css', 'recess');
+		grunt.registerTask('css', ['csslint', 'csmin']);
 };
