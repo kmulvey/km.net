@@ -14,7 +14,6 @@ html, body{
 	z-index: 2;
 }
 #viewport{
-	background-image:url('//img5.kevinmulvey.net/images/lights.jpg');
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -23,6 +22,9 @@ html, body{
 	background-repeat:no-repeat;
 	background-position:center, center; 
 	/*background-size: 100%;*/
+}
+#viewport img{
+	max-width: 100%;
 }
 #menu{
 	position: absolute;
