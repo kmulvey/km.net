@@ -124,7 +124,7 @@ module.exports = function(grunt) {
     });
 
     // Default task: the works
-		grunt.registerTask('default', 'clean recess lint qunit test concat min');
+		grunt.registerTask('default', ['clean', 'csslint', 'jshint', 'cssmin', 'uglify']);
 		// Make it
 		grunt.registerTask('make', ['clean', 'cssmin', 'uglify']);
 		// test only
@@ -132,5 +132,5 @@ module.exports = function(grunt) {
 		// JS
 		grunt.registerTask('js', ['jshint', 'uglify']);
 		// CSS
-		grunt.registerTask('css', ['csslint', 'csmin']);
+		grunt.registerTask('css', ['csslint', 'cssmin']);
 };
