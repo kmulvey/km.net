@@ -1,7 +1,12 @@
 {
   "name": "km",
   "version": "2.2.0",
-  "dependencies": {
+	"description": "Kevin Mulvey's Photography",
+  "repository": {
+		"type": "git",
+		"url": "git@github.com:kmulvey/km.net.git"
+	},
+	"dependencies": {
     "grunt": "",
     "grunt-contrib-clean": "",
     "grunt-contrib-csslint": "",
