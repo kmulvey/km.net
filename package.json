@@ -1,6 +1,6 @@
 {
   "name": "km",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "dependencies": {
     "grunt": "",
     "grunt-contrib-clean": "",
