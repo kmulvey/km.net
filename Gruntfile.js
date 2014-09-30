@@ -31,6 +31,9 @@ module.exports = function(grunt) {
 					}
 				},
 				cssmin: {
+					options: {
+						keepSpecialComments: 0
+					},
 					combine: {
           	files: {
           		'dist/css/km.<%= pkg.version %>.css': ['css/normalize.css', 'css/km.css']
