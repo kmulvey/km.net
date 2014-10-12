@@ -29,7 +29,7 @@ $(document).ready(function(){
 		});
   });
   $(window).on('hashchange', function (e) {
-    if(document.location.hash===""){return;}
+    if(document.location.hash === ""){return;}
     else{
       var len=images.length;
       for(var i=0; i<len; i++) {
