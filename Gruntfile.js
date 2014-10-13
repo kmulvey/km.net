@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+	use 'strict';
+
 	// includes
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
