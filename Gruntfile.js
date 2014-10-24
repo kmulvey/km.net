@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bump');
 	// Project configuration.
 	grunt.initConfig({
-			pkg: grunt.file.readJSON('package.json'),
+		pkg: grunt.file.readJSON('package.json'),
         meta: {
     		banner: 
             '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
