@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 					'/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
 					'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 					'* <%= pkg.url %>\n' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.copyright %> ' +
+					'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.copyright %> ' +
             ' Licensed MIT */'
         },
 				clean: {
