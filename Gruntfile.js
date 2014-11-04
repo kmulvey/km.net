@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 					' Licensed MIT */'
 			},
 				clean: {
-          js: ["dist/js"],
+					js: ["dist/js"],
 					css: ["dist/css"]
         },
         // ========== CSS ==========
