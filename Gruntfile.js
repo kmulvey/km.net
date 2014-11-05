@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 				clean: {
 					js: ["dist/js"],
 					css: ["dist/css"]
-        },
+				},
         // ========== CSS ==========
         csslint: {
 					src: ['css/km.css'],
