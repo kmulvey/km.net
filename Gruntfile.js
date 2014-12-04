@@ -37,7 +37,7 @@ module.exports = function(grunt) {
 					combine: {
 						files: {
           						'dist/css/km.<%= pkg.version %>.css': ['css/normalize.css', 'css/km.css']
-          	}
+						}
 					}
 				},
         // ========== END CSS ==========
