@@ -118,7 +118,7 @@ module.exports = function(grunt) {
         uglify: {
 					dist: {
 						files: {
-          		'dist/js/km.<%= pkg.version %>.js': ['js/km.js']
+          		'dist/js/km.<%= pkg.version %>.js': ['vendor/picturefill/picturefill.js']
 						},
 						options:{
 							compress: true,
@@ -141,7 +141,7 @@ module.exports = function(grunt) {
     });
 
     // Default task: the works
-		grunt.registerTask('default', ['clean', 'csslint', 'jshint', 'cssmin', 'uglify']);
+		grunt.registerTask('default', ['clean', 'bower', 'csslint', 'jshint', 'cssmin', 'uglify']);
 		// Make it
 		grunt.registerTask('make', ['clean', 'cssmin', 'uglify']);
 		// test only

@@ -2,6 +2,7 @@
   "name": "km.net",
 	"version": "v3.0.0",
 	"dependencies": {
-    "normalize.css": ""
+    "normalize.css": "",
+    "picturefill": ""
   }
 }
