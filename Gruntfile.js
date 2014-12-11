@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-	use 'strict';
+	'use strict';
 
 	// includes
 	grunt.loadNpmTasks('grunt-contrib-clean');
