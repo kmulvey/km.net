@@ -22,7 +22,8 @@ module.exports = function(grunt) {
         },
 				clean: {
           js: ["dist/js"],
-					css: ["dist/css"]
+					css: ["dist/css"],
+					vendor: ["vendor"]
         },
         // ========== CSS ==========
         csslint: {
