@@ -111,7 +111,8 @@ module.exports = function(grunt) {
         uglify: {
 					dist: {
 						files: {
-          		'dist/js/km.<%= pkg.version %>.min.js': ['vendor/picturefill/picturefill.js', 'js/km.js']
+          		'dist/js/picturefill.min.js': 'vendor/picturefill/picturefill.js',
+							'dist/js/km.min.js' : 'js/km.js'
 						},
 						options:{
 							compress: true,
