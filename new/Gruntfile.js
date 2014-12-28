@@ -13,10 +13,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
         	clean: {
-          js: ["dist/js"],
-					css: ["dist/css"],
-					vendor: ["vendor"]
-        },
+        		js: ["dist/js"],
+			css: ["dist/css"],
+			vendor: ["vendor"]
+        	},
         // ========== CSS ==========
         csslint: {
 					src: ['css/km.css'],
