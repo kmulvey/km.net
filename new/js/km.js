@@ -1,35 +1,39 @@
 $(document).ready(function(){
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
+	function debounce(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
 		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-}
-function calcZoom(){
-	var zoom = 1;
-	var ratio = $('body').width()/$('picture').width();
-	if(ratio < 1) zoom = ratio;
-	return zoom;
-}
-var bouncedZoom = debounce(function() {
-	$('body').css('zoom', calcZoom()*100 + "%");
-	$('.helper, picture, img').css('-moz-transform', 'scale(' + calcZoom() + ')');
-	// this can break things
-	$('.helper, picture, img').css('-moz-transform-origin', '0 0');
-}, 250);
-
-// do it once
-bouncedZoom();
-// do it again on resize
-$(window).on('resize', bouncedZoom);
+	}
+	function calcZoom(){
+		var zoom = 100;
+		//var ratio = $('body').width()/$('picture').width();
+		var ratio = $('body').height()/$('picture img').height();
+		if(ratio < 100) zoom = ratio;
+		return zoom;
+	}
+	var bouncedZoom = debounce(function() {
+		var ratio = calcZoom();
+		$('body').css('zoom', ratio + "%");
+		$('.helper, picture, img').css('-moz-transform', 'scale(' + ratio + ')');
+		// this can break things
+		$('.helper, picture, img').css('-moz-transform-origin', '0 0');
+	}, 250);
+	
+	// do it once
+	$('body').on("load", 'img', function() {
+	  bouncedZoom();
+	});
+	// do it again on resize
+	$(window).on('resize', bouncedZoom);
 
 
 // =================================================================================
@@ -63,8 +67,9 @@ var images=new Array('IMG_0154.JPG','IMG_0157.JPG','IMG_0167.JPG','IMG_0171.JPG'
     var link = document.location.hash.replace("#", '');
     var img_wrap = $('.img-wrap');
 		$('picture', img_wrap).remove();
-		img_wrap.append('<picture><source srcset="' + uri + '3k/' + link + '" media="(min-width: 2500px)"><source srcset="' + uri + '2k/' + link + '" media="(min-width: 1500px)"><source srcset="' + uri + '1k/' + link + '" media="(min-width: 500px)"><img srcset="' + uri + '2k/' + link + '" alt="Kevin Mulvey\'s Photography"></picture>');
-    e.preventDefault();
+		//img_wrap.append('<picture><source srcset="' + uri + '3k/' + link + '" media="(min-width: 2500px)"><source srcset="' + uri + '2k/' + link + '" media="(min-width: 1500px)"><source srcset="' + uri + '1k/' + link + '" media="(min-width: 500px)"><img srcset="' + uri + '2k/' + link + '" alt="Kevin Mulvey\'s Photography"></picture>');
+		img_wrap.append('<img src="' + uri + '3k/' + link + '" alt="Kevin Mulvey\'s Photography">');
+		e.preventDefault();
     }
   });
   $(window).trigger( 'hashchange' );
