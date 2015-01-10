@@ -38,6 +38,7 @@
 				white-space: nowrap;
 				text-align: center;
 				overflow: hidden;
+				position: relative;
 			}
 			.helper {
 				display: inline-block;
@@ -49,6 +50,11 @@
 			}
 		</style>
 		<script src="dist/js/picturefill.min.js"></script>
+		<script>
+				$('body').on("load", 'img', function() {
+					alert("dfsdfsdf");	
+				});
+		</script>
 	</head>
 	<body>
 		<div class="img-wrap">
@@ -61,7 +67,7 @@
 			</picture>
 		</div>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!--
 		<script src="dist/js/km.min.js"></script>
 		-->
