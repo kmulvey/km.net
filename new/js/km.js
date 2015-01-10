@@ -67,9 +67,15 @@ var images=new Array('IMG_0154.JPG','IMG_0157.JPG','IMG_0167.JPG','IMG_0171.JPG'
     var link = document.location.hash.replace("#", '');
     var img_wrap = $('.img-wrap');
 		$('picture', img_wrap).remove();
-		//img_wrap.append('<picture><source srcset="' + uri + '3k/' + link + '" media="(min-width: 2500px)"><source srcset="' + uri + '2k/' + link + '" media="(min-width: 1500px)"><source srcset="' + uri + '1k/' + link + '" media="(min-width: 500px)"><img srcset="' + uri + '2k/' + link + '" alt="Kevin Mulvey\'s Photography"></picture>');
-		img_wrap.append('<img src="' + uri + '3k/' + link + '" alt="Kevin Mulvey\'s Photography">');
-		e.preventDefault();
+		img_wrap.append('<picture><source srcset="' + uri + '3k/' + link + '" media="(min-width: 2500px)"><source srcset="' + uri + '2k/' + link + '" media="(min-width: 1500px)"><source srcset="' + uri + '1k/' + link + '" media="(min-width: 500px)"><img srcset="' + uri + '2k/' + link + '" alt="Kevin Mulvey\'s Photography"></picture>');
+    			var image = new Image();
+			image.addEventListener("load", function() {
+				console.log("width: " + image.width);
+				console.log("height: " + image.height);
+			}, false);
+			image.src = "https://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3c6263c3453b";
+
+    e.preventDefault();
     }
   });
   $(window).trigger( 'hashchange' );
