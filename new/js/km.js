@@ -32,8 +32,6 @@ $(document).ready(function(){
 	$('body').on("load", 'img', function() {
 	  bouncedZoom();
 	});
-	// do it again on resize
-	$(window).on('resize', bouncedZoom);
 
 
 // =================================================================================
