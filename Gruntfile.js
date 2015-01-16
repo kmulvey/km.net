@@ -40,11 +40,9 @@ module.exports = function(grunt) {
 						}
 					}
 				},
-        // ========== END CSS ==========
-
-        // ========== JS ==========
-
-        jshint: {
+        			// ========== END CSS ==========
+				// ========== JS ==========
+				jshint: {
 					files: ["js/km.js"],
         	options: {
                 // Development.
