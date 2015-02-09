@@ -63,16 +63,19 @@ var images=new Array('IMG_0154.JPG','IMG_0157.JPG','IMG_0167.JPG','IMG_0171.JPG'
           break;
         }
       }
-    var link = document.location.hash.replace("#", '');
-		var image = new Image();
-		$(".current").addClass("hiding");
-		image.addEventListener("load", function() {
-			$(".current").remove();
-			$(image).addClass("current");
-			$(".img-wrap").append(image);
-		}, false);
-		image.src = uri+link;
-    e.preventDefault();
+    	var link = document.location.hash.replace("#", '');
+			var image = new Image();
+			$(".current").addClass("hiding");
+			image.addEventListener("load", function() {
+				$(".current").remove();
+				$(image).addClass("current");
+				$(".img-wrap").append(image);
+			}, false);
+			image.src = uri+link;
+			$(".current").one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+
+  		});
+    	e.preventDefault();
     }
   });
   $(window).trigger( 'hashchange' );
