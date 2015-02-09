@@ -5,6 +5,9 @@ img {
   -webkit-animation: fadein 2s;
   animation: fadein 2s;
 }
+picture, img {
+	vertical-align: middle;
+}
 @keyframes fadein {
 	from { opacity: 0; }
 	to   { opacity: 1; }
@@ -25,6 +28,7 @@ img {
 	from { opacity: 1; }
 	to   { opacity: 0; }
 }
+
 /* center the image */
 html, body, .img-wrap{
 	height: 100%;
@@ -40,9 +44,6 @@ html, body, .img-wrap{
 .helper {
 	display: inline-block;
 	height: 100%;
-	vertical-align: middle;
-}
-picture, img {
 	vertical-align: middle;
 }
 .hidden{

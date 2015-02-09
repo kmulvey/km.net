@@ -31,7 +31,7 @@ $(document).ready(function(){
 	
 	// do it once
   bouncedZoom();
-
+	$( window ).resize(bouncedZoom);
 
 // =================================================================================
 
@@ -85,6 +85,6 @@ $(document).ready(function(){
 	});
 });
 /*
-			$(".current").one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-  		});
+	$(".current").one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+ 	});
 */
