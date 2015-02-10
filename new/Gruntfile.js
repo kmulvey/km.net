@@ -16,8 +16,7 @@ module.exports = function(grunt) {
 			clean: {
 				bower: ["public/vendor/"],
 				cssvendor: ["public/css/vendor/"],
-				cssdist: ["public/css/dist/"],
-				jsvendor: ["public/js/vendor/"],
+				cssdist: ["public/css/dist/"]
 			},
 			bower: {
 				install: {
@@ -30,12 +29,6 @@ module.exports = function(grunt) {
 				}
 			},
 			copy: {
-				jsvendor: {
-					flatten: true,
-					expand: true,
-					src: ['public/vendor/requirejs/require.js', 'public/vendor/jquery/jquery.js', 'public/vendor/bootstrap/bootstrap.js', 'public/vendor/swig/js/swig.js'],
-					dest: 'public/js/vendor/'
-				},
 				cssvendor: {
 					flatten: true,
 					expand: true,
@@ -45,8 +38,9 @@ module.exports = function(grunt) {
 			},
 			// ========== CSS ==========
 			csslint: {
-				src: ['css/km.css'],
+				src: ['public/css/km.css'],
 				options: {
+					"compatible-vendor-prefixes": false,
 					ids: false
 				}
 			},
@@ -85,9 +79,9 @@ module.exports = function(grunt) {
 		});
 
 		// Default task: the works
-		grunt.registerTask('default', ['css', 'js']);
+		grunt.registerTask('default', ['clean', 'css', 'js']);
 		// JS
-		grunt.registerTask('js', ['clean', 'bower', 'jshint', 'uglify']);
+		grunt.registerTask('js', ['bower', 'jshint', 'uglify']);
 		// CSS
-		grunt.registerTask('css', ['clean', 'bower', 'copy:cssvendor', 'csslint', 'cssmin']);
+		grunt.registerTask('css', ['bower', 'copy:cssvendor', 'csslint', 'cssmin']);
 };
