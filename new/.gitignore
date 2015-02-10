@@ -1,2 +1,5 @@
 vendor
 dist
+public/vendor
+public/css/vendor
+public/js/vendor
