@@ -14,7 +14,8 @@
     "grunt-contrib-csslint": "",
     "grunt-contrib-cssmin": "",
     "grunt-contrib-jshint": "",
-    "grunt-contrib-uglify": ""
+    "grunt-contrib-uglify": "",
+    "jshint-stylish": ""
   },
   "scripts": {
     "test": "grunt testonly",
