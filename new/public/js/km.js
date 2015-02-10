@@ -1,23 +1,30 @@
 $(document).ready(function(){
+	'use strict';
 	function debounce(func, wait, immediate) {
 		var timeout;
 		return function() {
 			var context = this, args = arguments;
 			var later = function() {
 				timeout = null;
-				if (!immediate) func.apply(context, args);
+				if (!immediate) {
+					func.apply(context, args);
+				}
 			};
 			var callNow = immediate && !timeout;
 			clearTimeout(timeout);
 			timeout = setTimeout(later, wait);
-			if (callNow) func.apply(context, args);
+			if (callNow) {
+				func.apply(context, args);
+			}
 		};
 	}
 	function calcZoom(){
 		var zoom = 100;
 		//var ratio = $('body').width()/$('picture').width();
 		var ratio = $('body').width()/$('img').width()*100;
-		if(ratio < 100) zoom = ratio;
+		if(ratio < 100) {
+			zoom = ratio;
+		}
 		return zoom;
 	}
 	var bouncedZoom = debounce(function() {
@@ -70,14 +77,18 @@ $(document).ready(function(){
 		//right
 		if(code === 39 || code === 38) {
 			e.preventDefault();
-			if(curr_img >= images.length-1) curr_img = -1;
+			if(curr_img >= images.length-1) {
+				curr_img = -1;
+			}
 			curr_img++;
 			document.location.hash = "#/" + images[curr_img];
 		}
 		//left
 		if(code === 37 || code === 40) {
 			e.preventDefault();
-			if(curr_img <= 0) curr_img = images.length;
+			if(curr_img <= 0) {
+				curr_img = images.length;
+			}
 			curr_img--;
 			document.location.hash = "#/" + images[curr_img];
 		}
