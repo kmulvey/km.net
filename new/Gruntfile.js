@@ -60,13 +60,13 @@ module.exports = function(grunt) {
 						}
 					}
 				},
-        // ========== END CSS ==========
-        // ========== JS ==========
-        jshint: {
+				// ========== END CSS ==========
+				// ========== JS ==========
+				jshint: {
 					files: ["public/js/km.js"]
-        },
+				},
 
-        uglify: {
+				uglify: {
 					dist: {
 						files: {
 							'public/js/dist/km.min.js' : 'public/js/km.js'
@@ -75,17 +75,13 @@ module.exports = function(grunt) {
 							compress: true,
 							report: 'gzip'
 						}
-			    }
+					}
 				}
 				// ========== END JS ==========
-    });
+		});
 
-    // Default task: the works
-		grunt.registerTask('default', ['clean', 'bower', 'csslint', 'jshint', 'cssmin', 'uglify']);
-		// Make it
-		grunt.registerTask('make', ['clean', 'cssmin', 'uglify']);
-		// test only
-		grunt.registerTask('test', ['csslint', 'jshint']);
+		// Default task: the works
+		grunt.registerTask('default', ['css', 'js']);
 		// JS
 		grunt.registerTask('js', ['clean', 'bower', 'jshint', 'uglify']);
 		// CSS
