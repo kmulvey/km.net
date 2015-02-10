@@ -61,18 +61,15 @@ module.exports = function(grunt) {
 					}
 				},
         // ========== END CSS ==========
-
         // ========== JS ==========
-
         jshint: {
-					files: ["js/km.js"]
+					files: ["public/js/km.js"]
         },
 
         uglify: {
 					dist: {
 						files: {
-          		'dist/js/picturefill.min.js': 'vendor/picturefill/picturefill.js',
-							'dist/js/km.min.js' : 'js/km.js'
+							'public/js/dist/km.min.js' : 'public/js/km.js'
 						},
 						options:{
 							compress: true,
@@ -80,7 +77,6 @@ module.exports = function(grunt) {
 						}
 			    }
 				}
-        
 				// ========== END JS ==========
     });
 
@@ -91,7 +87,7 @@ module.exports = function(grunt) {
 		// test only
 		grunt.registerTask('test', ['csslint', 'jshint']);
 		// JS
-		grunt.registerTask('js', ['jshint', 'uglify']);
+		grunt.registerTask('js', ['clean', 'bower', 'jshint', 'uglify']);
 		// CSS
 		grunt.registerTask('css', ['clean', 'bower', 'copy:cssvendor', 'csslint', 'cssmin']);
 };
