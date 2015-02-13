@@ -63,6 +63,7 @@ $(document).ready(function(){
 				$(".current").remove();
 				$(image).addClass("current");
 				$(".img-wrap").append(image);
+  			bouncedZoom();
 			}, false);
 			image.src = uri+link;
 			$(".current").addClass("hiding");
