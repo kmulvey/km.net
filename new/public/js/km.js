@@ -21,7 +21,7 @@ $(document).ready(function(){
 	function calcZoom(){
 		var zoom = 100;
 		//var ratio = $('body').width()/$('picture').width();
-		var ratio = $('body').width()/$('img').width()*100;
+		var ratio = $(window).width()/$('img').width()*100;
 		if(ratio < 100) {
 			zoom = ratio;
 		}
@@ -61,8 +61,8 @@ $(document).ready(function(){
 			var image = new Image();
 			image.addEventListener("load", function() {
 				$(".current").remove();
-				$(image).addClass("current");
-				$(".img-wrap").append(image);
+				$(this).addClass("current");
+				$(".img-wrap").append(this);
   			bouncedZoom();
 			}, false);
 			image.src = uri+link;
