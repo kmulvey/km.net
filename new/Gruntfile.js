@@ -79,9 +79,9 @@ module.exports = function(grunt) {
 		});
 
 		// Default task: the works
-		grunt.registerTask('default', ['clean', 'css', 'js']);
+		grunt.registerTask('default', ['clean', 'bower', 'css', 'js']);
 		// JS
-		grunt.registerTask('js', ['bower', 'jshint', 'uglify']);
+		grunt.registerTask('js', ['jshint', 'uglify']);
 		// CSS
-		grunt.registerTask('css', ['bower', 'copy:cssvendor', 'csslint', 'cssmin']);
+		grunt.registerTask('css', ['copy:cssvendor', 'csslint', 'cssmin']);
 };
