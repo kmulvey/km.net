@@ -1,21 +1,21 @@
 {
 	"name": "km",
-  "version": "2.2.1",
+	"version": "2.2.1",
 	"description": "Kevin Mulvey's Photography",
-  "repository": {
+	"repository": {
 		"type": "git",
 		"url": "git@github.com:kmulvey/km.net.git"
 	},
 	"dependencies": {
-    "grunt": "",
-    "grunt-contrib-clean": "",
-    "grunt-contrib-csslint": "",
-    "grunt-contrib-cssmin": "",
-    "grunt-contrib-jshint": "",
-    "grunt-contrib-uglify": "",
-    "grunt-bump": ""
-  },
-  "scripts": {
-    "build": "grunt"
-  }
+		"grunt": "",
+		"grunt-contrib-clean": "",
+		"grunt-contrib-csslint": "",
+		"grunt-contrib-cssmin": "",
+		"grunt-contrib-jshint": "",
+		"grunt-contrib-uglify": "",
+		"grunt-bump": ""
+	},
+	"scripts": {
+		"build": "grunt"
+	}
 }
