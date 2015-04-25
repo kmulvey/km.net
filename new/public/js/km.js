@@ -66,7 +66,7 @@ $(document).ready(function(){
   			bouncedZoom();
 			}, false);
 			image.src = uri+link;
-			$(".current").addClass("hiding");
+			//$(".current").addClass("hiding");
 			e.preventDefault();
 		}
 	});
