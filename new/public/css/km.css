@@ -1,5 +1,35 @@
 body{
 	background-color: #141414;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#toc{
+	height: 100%;
+}
+#toc div{
+	width: 100%;
+	height: 50%;
+	background-size: cover;
+	text-align: center;
+}
+#patagonia{
+	background: url(//img.kevinmulvey.net/images/patagonia/1k/IMG_0154.JPG) no-repeat;
+}
+#nz{
+	background: url(//img.kevinmulvey.net/images/nz/1k/IMG_0042.JPG) no-repeat;
+}
+button{
+	padding: 20px 40px;
+	font-size: 30px;
+	background: transparent;
+	border: 1px solid #eee;
+	border-radius: 4px;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+button:hover{
+	opacity: .7;
 }
 img {
   -webkit-animation: fadein 2s;
@@ -40,6 +70,9 @@ picture.current{
 html, body, .img-wrap{
 	height: 100%;
 	width: 100%;
+}
+.hide{
+	display: none;
 }
 #img-wrap{
 	height: 100%;

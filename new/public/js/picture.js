@@ -4,7 +4,10 @@ $(document).ready(function(){
 	var curr_img=0;
 	var preload_img=1;
 	var known = false; // hack
-	var images=new Array('IMG_0154','IMG_0157','IMG_0167','IMG_0171','IMG_0181','IMG_0187','IMG_0208','IMG_0252','IMG_0262','IMG_0270','IMG_0273','IMG_0284','IMG_0287','IMG_0288','IMG_0311','IMG_0324','IMG_0329','IMG_0335','IMG_0346','IMG_0387','IMG_0414','IMG_0423','IMG_0444','IMG_0447','IMG_0454','IMG_0469','IMG_0490','IMG_0497','IMG_0518','IMG_0519','IMG_0520','IMG_0545','IMG_0547','IMG_0563','IMG_0590','IMG_0593','IMG_0620','IMG_0641','IMG_0642','IMG_0656','IMG_0661','IMG_0670','IMG_0680','IMG_0681','IMG_0693','IMG_0695','IMG_0699','IMG_0704','IMG_0710','IMG_0711','IMG_0740','IMG_0746','IMG_0749','IMG_0763','IMG_0770','IMG_0782','IMG_0786','IMG_0789','IMG_0790','IMG_0791','IMG_0801','IMG_0804','IMG_0805','IMG_0807','IMG_0809','IMG_0840','IMG_0866','IMG_0874','IMG_0887','IMG_0893','IMG_0902');
+	var images = {
+		patagonia = ['0154','0157','0167','0171','0181','0187','0208','0252','0262','0270','0273','0284','0287','0288','0311','0324','0329','0335','0346','0387','0414','0423','0444','0447','0454','0469','0490','0497','0518','0519','0520','0545','0547','0563','0590','0593','0620','0641','0642','0656','0661','0670','0680','0681','0693','0695','0699','0704','0710','0711','0740','0746','0749','0763','0770','0782','0786','0789','0790','0791','0801','0804','0805','0807','0809','0840','0866','0874','0887','0893','0902'],
+		nz = ['0042','0043','0047','0058','0071','0076','0081','0084','0087','0089','0090','0105','0106','0114','0124','0132','0133','0134','0136','0140','0161','0166','0170','0173','0179','0200','0201','0221','0248','0259','0277','0286','0288','0296','0299','0303','0307','0308','0310','0315','0316','0317','0318','0323','0333','0339','0343','0346','0347','0356','0367','0415','0421','0434','0451','0455','0457','0460','0463','0464','0468','0482','0497','0498','0501','0511','0512','0526','0549','0555','0566','0580','0586','0598','0599','0600','0606','0610','0621','0642','0715','0717','0729','0739','0744','0758','0767','0770','0775','0777','0792','0810','0822','0827','0829','0833','0838','0851','0859','0871','0897','0913','0915','0919','0924','0926','0937','0949','0952','0963','0967','0979','0980','0985','0987','0997','0998','1000','1016','1019','1026','1028','1029','1031','1033','1038','1044','1069','1073','1079','1081','1109','1112','1136','1160','1172','1185','1199','1203','1224','1225']
+	};
 
 	$(window).on('hashchange', function (e) {   
 		// first time
@@ -28,7 +31,7 @@ $(document).ready(function(){
 			if($("#" + curr).length === 1){
 				$("#" + curr).addClass("current");
 			} else{
-				var $img = $('<picture id="' + curr + '" class="current"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/' + curr + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/' + curr + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/' + curr + '.JPG" alt=""></picture>');
+				var $img = $('<picture id="' + curr + '" class="current"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/IMG_' + curr + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/IMG_' + curr + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/IMG_' + curr + '.JPG" alt=""></picture>');
 				$('#img-wrap').append($img);
 			}
 			var link = document.location.hash.replace("#", '');
@@ -37,7 +40,7 @@ $(document).ready(function(){
 			// preloading
 			var next = images[preload_img];
 			if($("#" + next).length === 0){
-				var $next_img = $('<picture id="' + next + '"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/' + next + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/' + next + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/' + next + '.JPG" alt=""></picture>');
+				var $next_img = $('<picture id="' + next + '"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/IMG_' + next + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/IMG_' + next + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/IMG_' + next + '.JPG" alt=""></picture>');
 				$('#img-wrap').append($next_img);
 			}
 	});
