@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	'use strict';
 
-	var uri ='//img.kevinmulvey.net/images/patagonia/2k/';
 	var curr_img=0;
 	var preload_img=1;
 	var known = false; // hack
