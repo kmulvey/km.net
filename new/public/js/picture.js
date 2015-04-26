@@ -25,7 +25,7 @@ $(document).ready(function(){
 			// map the name in the uri to an index in the array
 			var len=images[region].length;
 			for(var i=0; i<len; i++) {
-				if(images[region][i].indexOf(document.location.hash.replace("#/", "")) !== -1){
+				if(images[region][i].indexOf(document.location.hash.replace("#", "")) !== -1){
 					curr_img=i;
 					preload_img = curr_img + 1;
 					break;
@@ -68,7 +68,7 @@ $(document).ready(function(){
 			if(curr_img === images[region].length - 1) preload_img = 0; // dont go out of bounds
 			else preload_img = curr_img + 1;
 			known = true;
-			document.location.hash = "#/" + images[region][curr_img];
+			document.location.hash = "#" + images[region][curr_img];
 		}
 		//left
 		if(code === 37 || code === 40) {
@@ -81,7 +81,7 @@ $(document).ready(function(){
 			if(curr_img === 0) preload_img = images[region].length - 1;
 			else preload_img = curr_img - 1;
 			known = true;
-			document.location.hash = "#/" + images[region][curr_img];
+			document.location.hash = "#" + images[region][curr_img];
 		}
 	});
 });
