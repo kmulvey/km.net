@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	'use strict';
 
-	var region;
+	var region, img_id;
 	var curr_img=0;
 	var preload_img=1;
 	var known = false; // hack
@@ -10,27 +10,38 @@ $(document).ready(function(){
 		nz : ['0042','0043','0047','0058','0071','0076','0081','0084','0087','0089','0090','0105','0106','0114','0124','0132','0133','0134','0136','0140','0161','0166','0170','0173','0179','0200','0201','0221','0248','0259','0277','0286','0288','0296','0299','0303','0307','0308','0310','0315','0316','0317','0318','0323','0333','0339','0343','0346','0347','0356','0367','0415','0421','0434','0451','0455','0457','0460','0463','0464','0468','0482','0497','0498','0501','0511','0512','0526','0549','0555','0566','0580','0586','0598','0599','0600','0606','0610','0621','0642','0715','0717','0729','0739','0744','0758','0767','0770','0775','0777','0792','0810','0822','0827','0829','0833','0838','0851','0859','0871','0897','0913','0915','0919','0924','0926','0937','0949','0952','0963','0967','0979','0980','0985','0987','0997','0998','1000','1016','1019','1026','1028','1029','1031','1033','1038','1044','1069','1073','1079','1081','1109','1112','1136','1160','1172','1185','1199','1203','1224','1225']
 	};
 
-	$("#toc").on("click", "button", function(e){
-		region = this.parentElement.id;
+	$("#toc").on("click", "a", function(e){
+		region = this.id;
 		$("#" + e.delegateTarget.id).hide();
 		$("#img-wrap").removeClass("hide");
 	});
-	$(window).on('hashchange', function (e) {   
-		// first time
-		if(document.location.hash.trim() === ""){
-			$("picture")[0].className = "current";
-			return;
-		}
-		else if(!known){
-			// map the name in the uri to an index in the array
-			var len=images[region].length;
-			for(var i=0; i<len; i++) {
-				if(images[region][i].indexOf(document.location.hash.replace("#", "")) !== -1){
-					curr_img=i;
-					preload_img = curr_img + 1;
-					break;
+	function init(){
+		if(document.location.hash.trim() !== ""){
+			var params = document.location.hash.trim().split("/");
+			region = params[0].replace("#", "");
+			else if (region !== "patagonia" || region !== ""){
+				return; // typed some crap
+			}
+			$("picture." + region)[0].className = "current";
+			if(params.length > 1){
+				// map the name in the uri to an index in the array
+				var len=images[region].length;
+				for(var i=0; i<len; i++) {
+					if(images[region][i].indexOf(parmas[1] !== -1){
+						curr_img=i;
+						preload_img = curr_img + 1;
+						break;
+					}
 				}
 			}
+		}
+		// they hit index, show the splash screen
+		else{
+			return;
+		}
+	}
+	$(window).on('hashchange', function (e) {   
+		else if(!known){
 		}
 			$("picture").removeClass("current");
 			var curr = images[region][curr_img];

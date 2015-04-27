@@ -15,6 +15,7 @@ body{
 	text-align: center;
 	display: block;
 	text-decoration: none;
+	background-position: center bottom;
 }
 #patagonia{
 	background: url(//img.kevinmulvey.net/images/patagonia/1k/IMG_0154.JPG) no-repeat;
