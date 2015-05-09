@@ -1,38 +1,59 @@
-function Gallery(region){	
-	'use strict';
+//(function(exports){
+	function Gallery(images){	
+		'use strict';
 
-	var img_id;
-	var curr_img=0;
-	var preload_img=1;
-	var known = false; // hack
-}
-Gallery.prototype.processParams = function () {
-	if(document.location.hash.trim() !== ""){
-		var params = document.location.hash.trim().split("/");
-		region = params[0].replace("#", "");
-		if (region !== "patagonia" || region !== "nz"){
-			return; // typed some crap
-		}
-		
-		$("picture." + region)[0].className = "current";
-		if(params.length > 1){
-			// map the name in the uri to an index in the array
-			var len=images[region].length;
-			for(var i=0; i<len; i++) {
-				if(images[region][i].indexOf(parmas[1] !== -1){
-					curr_img=i;
-					preload_img = curr_img + 1;
-					break;
-				}
-			}
-		}
+		this.images = images;
+
+		var img_id;
+		var curr_img=0;
+		var preload_img=1;
+		var known = false; // hack
 	}
-};
+	Gallery.prototype.processParams = function (hash) {
+		'use strict';
+		var returnVals = {};
+
+		if(hash !== ""){
+			var params = hash.split("/");
+			var region = params[0].replace("#", "");
+			if (region === "patagonia" || region === "nz"){
+				returnVals.region=region;
+				// $("picture." + region)[0].className = "current"; // move this to caller
+				if(params.length > 1){
+					// map the name in the uri to an index in the array
+					var len=this.images[region].length;
+					for(var i=0; i<len; i++) {
+						if(this.images[region][i].indexOf(params[1]) !== -1){
+							returnVals.curr_img=i;
+							returnVals.preload_img = returnVals.curr_img + 1;
+							break;
+						}
+					}
+					return returnVals;
+				} else{
+					return returnVals; // take them to the region index
+				}
+			} else{
+				return 0; // typed some crap
+			}
+		}	
 		// they hit index, show the splash screen
 		else{
-			return;
+			return 0;
 		}
-	};
+	}; // end processParams()
+	
+	module.exports = Gallery;
+
+//})(typeof exports === 'undefined'? this['mymodule']={}: exports);
+
+
+
+
+
+
+/*
+
 	$(window).on('hashchange', function (e) {   
 		else if(!known){
 		}
@@ -89,3 +110,5 @@ Gallery.prototype.processParams = function () {
 		}
 	});
 });
+
+*/
