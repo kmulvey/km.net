@@ -6,11 +6,6 @@ $(document).ready(function(){
 	var preload_img=1;
 	var known = false; // hack
 
-	$("#toc").on("click", "a", function(e){
-		region = this.id;
-		$("#" + e.delegateTarget.id).hide();
-		$("#img-wrap").removeClass("hide");
-	});
 	function init(){
 		if(document.location.hash.trim() !== ""){
 			var params = document.location.hash.trim().split("/");
