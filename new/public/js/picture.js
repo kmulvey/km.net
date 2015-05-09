@@ -25,7 +25,10 @@
 					for(var i=0; i<len; i++) {
 						if(this.images[region][i].indexOf(params[1]) !== -1){
 							returnVals.curr_img=i;
-							returnVals.preload_img = returnVals.curr_img + 1;
+							if(returnVals.curr_img !== this.images[region].length-1)
+								returnVals.preload_img = returnVals.curr_img + 1;
+							else
+								returnVals.preload_img = 0;
 							break;
 						}
 					}
