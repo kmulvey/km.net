@@ -1,36 +1,38 @@
-$(document).ready(function(){
+function Gallery(region){	
 	'use strict';
 
-	var region, img_id;
+	var img_id;
 	var curr_img=0;
 	var preload_img=1;
 	var known = false; // hack
-
-	function init(){
-		if(document.location.hash.trim() !== ""){
-			var params = document.location.hash.trim().split("/");
-			region = params[0].replace("#", "");
-			else if (region !== "patagonia" || region !== ""){
-				return; // typed some crap
-			}
-			$("picture." + region)[0].className = "current";
-			if(params.length > 1){
-				// map the name in the uri to an index in the array
-				var len=images[region].length;
-				for(var i=0; i<len; i++) {
-					if(images[region][i].indexOf(parmas[1] !== -1){
-						curr_img=i;
-						preload_img = curr_img + 1;
-						break;
-					}
+}
+Gallery.prototype.processParams = function () {
+	if(document.location.hash.trim() !== ""){
+		var params = document.location.hash.trim().split("/");
+		region = params[0].replace("#", "");
+		if (region !== "patagonia" || region !== "nz"){
+			return; // typed some crap
+		}
+		
+		$("picture." + region)[0].className = "current";
+		if(params.length > 1){
+			// map the name in the uri to an index in the array
+			var len=images[region].length;
+			for(var i=0; i<len; i++) {
+				if(images[region][i].indexOf(parmas[1] !== -1){
+					curr_img=i;
+					preload_img = curr_img + 1;
+					break;
 				}
 			}
 		}
+	}
+};
 		// they hit index, show the splash screen
 		else{
 			return;
 		}
-	}
+	};
 	$(window).on('hashchange', function (e) {   
 		else if(!known){
 		}
