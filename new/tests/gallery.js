@@ -20,6 +20,9 @@ describe('Gallery', function(){
 			assert.deepEqual({"region":"patagonia","curr_img":0,"preload_img":1}, g.processParams("#patagonia/0154"));
 			assert.deepEqual({"region":"patagonia","curr_img":9,"preload_img":10}, g.processParams("#patagonia/0270"));
 			assert.deepEqual({"region":"patagonia","curr_img":70,"preload_img":0}, g.processParams("#patagonia/0902"));
+			assert.deepEqual({"region":"nz","curr_img":0,"preload_img":1}, g.processParams("#nz/0042"));
+			assert.deepEqual({"region":"nz","curr_img":9,"preload_img":10}, g.processParams("#nz/0089"));
+			assert.deepEqual({"region":"nz","curr_img":140,"preload_img":0}, g.processParams("#nz/1225"));
 			
 			// incorrect images
 			assert.deepEqual({"region":"patagonia"}, g.processParams("#patagonia/0000"));
