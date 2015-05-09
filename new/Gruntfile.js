@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 					jshintrc: true,
 					reporter: require('jshint-stylish')
 				},
-				files: ["public/js/km.js"]
+				files: ["public/js/picture.js"]
 			},
 
 			uglify: {
