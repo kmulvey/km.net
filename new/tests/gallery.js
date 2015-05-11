@@ -8,6 +8,7 @@ describe('Gallery', function(){
 			var g = new Gallery(images);
 			assert.equal(0, g.processParams(""));
 			assert.equal(0, g.processParams("sdgfs"));
+			assert.equal(0, g.processParams("#dwghwo"));
     });
     it('should return region index when only region is passed', function(){
 			var g = new Gallery(images);
@@ -26,9 +27,7 @@ describe('Gallery', function(){
 			
 			// incorrect images
 			assert.deepEqual({"region":"patagonia"}, g.processParams("#patagonia/0000"));
-			
-			// incorrect regions
-			assert.equal(0, g.processParams("#dwghwo"));
+			assert.deepEqual({"region":"nz"}, g.processParams("#nz/0000"));
     });
   })
 })

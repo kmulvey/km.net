@@ -9,6 +9,14 @@
 		var preload_img=1;
 		var known = false; // hack
 	}
+	Gallery.prototype.applyHandlers = function (hash) {
+		'use strict';
+		$(window).on('hashchange', function(e){
+			var updates = processParams(document.window.hash);
+			hashChange(e, updates);
+		});
+	};
+
 	Gallery.prototype.processParams = function (hash) {
 		'use strict';
 		var returnVals = {};
@@ -46,39 +54,34 @@
 		}
 	}; // end processParams()
 	
+
+	Gallery.prototype.hashChange = function(e){
+		'use strict';
+		$("picture").removeClass("current");
+		var curr = images[region][curr_img];
+		if($("#" + curr).length === 1){
+			$("#" + curr).addClass("current");
+		} else{
+			var $img = $('<picture id="' + curr + '" class="current"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/IMG_' + curr + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/IMG_' + curr + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/IMG_' + curr + '.JPG" alt=""></picture>');
+			$('#img-wrap').append($img);
+		}
+		var link = document.location.hash.replace("#", '');
+		e.preventDefault();
+		
+		// preloading
+		var next = images[region][preload_img];
+		if($("#" + next).length === 0){
+			var $next_img = $('<picture id="' + next + '"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/IMG_' + next + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/IMG_' + next + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/IMG_' + next + '.JPG" alt=""></picture>');
+			$('#img-wrap').append($next_img);
+		}
+	};
+	
 	module.exports = Gallery;
 
-//})(typeof exports === 'undefined'? this['mymodule']={}: exports);
-
-
-
-
-
-
-/*
-
-	$(window).on('hashchange', function (e) {   
-		else if(!known){
-		}
-			$("picture").removeClass("current");
-			var curr = images[region][curr_img];
-			if($("#" + curr).length === 1){
-				$("#" + curr).addClass("current");
-			} else{
-				var $img = $('<picture id="' + curr + '" class="current"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/IMG_' + curr + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/IMG_' + curr + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/IMG_' + curr + '.JPG" alt=""></picture>');
-				$('#img-wrap').append($img);
-			}
-			var link = document.location.hash.replace("#", '');
-			e.preventDefault();
-			
-			// preloading
-			var next = images[region][preload_img];
-			if($("#" + next).length === 0){
-				var $next_img = $('<picture id="' + next + '"><source srcset="//img.kevinmulvey.net/images/patagonia/3k/IMG_' + next + '.JPG" media="(min-width: 3000px)"><source srcset="//img.kevinmulvey.net/images/patagonia/2k/IMG_' + next + '.JPG" media="(min-width: 2000px)"><img src="//img.kevinmulvey.net/images/patagonia/1k/IMG_' + next + '.JPG" alt=""></picture>');
-				$('#img-wrap').append($next_img);
-			}
-	});
 	
+	/*
+
+//})(typeof exports === 'undefined'? this['mymodule']={}: exports);
 	// get it started for this page load
 	$(window).trigger( 'hashchange' );
 	
