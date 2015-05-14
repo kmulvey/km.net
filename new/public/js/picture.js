@@ -1,4 +1,4 @@
-//(function(exports){
+(function(exports){
 	function Gallery(images){	
 		'use strict';
 
@@ -75,8 +75,9 @@
 		}
 	};
 	
-	module.exports = Gallery;
+	exports = Gallery;
 
+})(typeof exports === 'undefined'? this['mymodule']={}: exports);
 	
 	/*
 
