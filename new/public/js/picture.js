@@ -1,3 +1,4 @@
+var app = {};
 (function(exports){
 	function Gallery(images){	
 		'use strict';
@@ -77,7 +78,7 @@
 	
 	exports = Gallery;
 
-})(typeof exports === 'undefined'? this['mymodule']={}: exports);
+})(typeof exports === 'undefined'? app: exports);
 	
 	/*
 
