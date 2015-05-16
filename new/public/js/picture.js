@@ -1,5 +1,3 @@
-var app = {};
-(function(exports){
 	function Gallery(images){	
 		'use strict';
 
@@ -76,9 +74,13 @@ var app = {};
 		}
 	};
 	
-	exports = Gallery;
 
-})(typeof exports === 'undefined'? app: exports);
+if( typeof exports !== 'undefined' ) {
+	if( typeof module !== 'undefined' && module.exports ) {
+		exports = module.exports = Gallery
+	}
+	exports.Gallery = Gallery
+} 
 	
 	/*
 
