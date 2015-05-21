@@ -5,10 +5,10 @@ var assert = require("assert");
 describe('Gallery', function(){
   describe('processParams', function(){
     it('should return 0 when crap params are passed', function(){
-			var g = new Gallery(images);
-			assert.equal(0, g.processParams(""));
-			assert.equal(0, g.processParams("sdgfs"));
-			assert.equal(0, g.processParams("#dwghwo"));
+	var g = new Gallery(images);
+	assert.equal(0, g.processParams(""));
+	assert.equal(0, g.processParams("sdgfs"));
+	assert.equal(0, g.processParams("#dwghwo"));
     });
     it('should return region index when only region is passed', function(){
 			var g = new Gallery(images);
