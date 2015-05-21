@@ -8,14 +8,6 @@
 		var preload_img=1;
 		var known = false; // hack
 	}
-	Gallery.prototype.applyHandlers = function (hash) {
-		'use strict';
-		$(window).on('hashchange', function(e){
-			e.preventDefault();
-			var updates = processParams(document.window.hash);
-			hashChangeView(e, updates);
-		});
-	};
 
 	Gallery.prototype.processParams = function (hash) {
 		'use strict';
@@ -26,7 +18,6 @@
 			var region = params[0].replace("#", "");
 			if (region === "patagonia" || region === "nz"){
 				returnVals.region=region;
-				// $("picture." + region)[0].className = "current"; // move this to caller
 				if(params.length > 1){
 					// map the name in the uri to an index in the array
 					var len=this.images[region].length;
@@ -42,6 +33,7 @@
 					}
 					return returnVals;
 				} else{
+					returnVals.curr_img = 0;
 					return returnVals; // take them to the region index
 				}
 			} else{
@@ -58,6 +50,7 @@
 	Gallery.prototype.hashChangeView = function(e, updates){
 		'use strict';
 		$("picture").removeClass("current");
+		$("picture." + region)[0].className = "current"; // move this to caller
 		var curr = images[updates.region][updates.curr_img];
 		if($("#" + curr).length === 1){
 			$("#" + curr).addClass("current");

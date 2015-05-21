@@ -36,7 +36,11 @@
 			<script src="public/js/picture.js"></script>
 			<script>
 				var g = new Gallery(images);
-				g.applyHandlers();
+				$(window).on('hashchange', function(e){
+					e.preventDefault();
+					var updates = g.processParams(window.location.hash);
+					g.hashChangeView(e, updates);
+				});
 			</script>
 		</div>
 	</body>
