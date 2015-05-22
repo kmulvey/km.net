@@ -50,7 +50,8 @@
 	Gallery.prototype.hashChangeView = function(e, updates){
 		'use strict';
 		$("picture").removeClass("current");
-		$("picture." + region)[0].className = "current"; // move this to caller
+		$("#toc").hide();
+		$("picture." + updates.region)[0].className = "current"; // move this to caller
 		var curr = images[updates.region][updates.curr_img];
 		if($("#" + curr).length === 1){
 			$("#" + curr).addClass("current");
