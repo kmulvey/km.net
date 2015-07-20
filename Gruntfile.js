@@ -44,14 +44,14 @@ module.exports = function(grunt) {
 				// ========== JS ==========
 				jshint: {
 					files: ["js/km.js"],
-        	options: {
-                // Development.
-                "debug"         : false,  // Allow debugger statements e.g. browser breakpoints.
-                "devel"         : false,   // Allow developments statements e.g. `console.log();`.
-
-                // Settings
-                "passfail"      : false,  // Stop on first error.
-                "maxerr"        : 100,    // Maximum error before stopping.
+			        	options: {
+			                // Development.
+			                "debug"         : false,  // Allow debugger statements e.g. browser breakpoints.
+			                "devel"         : false,   // Allow developments statements e.g. `console.log();`.
+			
+			                // Settings
+			                "passfail"      : false,  // Stop on first error.
+			                "maxerr"        : 100,    // Maximum error before stopping.
 
                 // Predefined globals whom JSHint will ignore.
                 "browser"       : true,   // Standard browser globals e.g. `window`, `document`.
